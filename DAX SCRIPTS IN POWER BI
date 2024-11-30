@@ -1,1 +1,204 @@
+## DAX SCRIPTS TO CREATE EXPLICIT MEASURES FOR THE PREMIER LEAGUE TEAMS
+
+Average Attendance = DIVIDE([Highest Attendance at Home], [No of Teams])
+
+Brighton goals = CALCULATE([Total Away Goals],
+FILTER(
+    ALL('Premier league teams'[Away Team]),
+     'Premier league teams'[Away Team] = "Brighton and Hove Albion"
+)) 
+
+Brighton_goals_away = CALCULATE([Total Away Goals],
+FILTER(
+    ALL('Premier league teams'[Away Team]),
+     'Premier league teams'[Away Team] = "Brighton and Hove Albion" ))
+
+Goals Scored in not_forest = CALCULATE([Total Goals Scored],
+'Premier league teams'[stadium] = "Gtech Community Stadium"
+)
+
+Goals Scored in spurs = CALCULATE([Total Goals Scored],
+'Premier league teams'[stadium] = "Tottenham Hotspur Stadium"
+)
+
+Highest Attendance at Home = CALCULATE([Total Attendance],
+'Premier league teams'[stadium]= "Old Trafford"
+)
+
+Highest Attendance Away from Home = CALCULATE([Total Attendance],
+'Premier league teams'[Away Team]= "Brighton and Hove Albion"
+)
+
+Leeds united goals = CALCULATE([Total Home Goals],
+FILTER(
+    ALL('Premier league teams'[Home Team]),
+     'Premier league teams'[Home Team] = "Leeds United"
+))
+
+Liverpool_goals = CALCULATE([Total Goals Scored],
+'Premier league teams'[stadium] = "Anfield"
+)
+
+Lowest Attendance at Home = CALCULATE([Total Attendance],
+'Premier league teams'[stadium]= "Vitality Stadium"
+)
+
+Lowest Attendance Away From Home = CALCULATE([Total Attendance],
+'Premier league teams'[Away Team]= "Manchester City"
+)
+
+Median = MEDIAN('Premier League fact 1'[attendance])
+
+No of Teams = DISTINCTCOUNT('Premier league teams'[Home Team])
+
+Team with best Away Chances = CALCULATE([Total Season Away chances],
+FILTER(
+    ALL('Premier league teams'[Away Team]),
+     'Premier league teams'[Away Team] = "Brighton and Hove Albion"
+))
+
+Team with Best Away Possessions = CALCULATE([Total Away Possessions],
+FILTER(
+    ALL('Premier league teams'[Away Team]),
+     'Premier league teams'[Away Team] = "Brighton and Hove Albion"
+))
+
+Team With Best Away Saves = CALCULATE([Total Away Saves],
+'Premier league teams'[Away Team]= "Nottingham Forest"
+) 
+
+Team With Best Away Shots = CALCULATE([Total  Away Shots],
+'Premier league teams'[Away Team]= "Brighton and Hove Albion"
+)
+
+Team with best Home Chances = CALCULATE([Total Season Home chances],
+FILTER(
+    ALL('Premier league teams'[Home Team]),
+     'Premier league teams'[Home Team] = "Leeds United"
+)) 
+
+Team with Best Home Possessions = CALCULATE([Total Home Possessions],
+FILTER(
+    ALL('Premier league teams'[Home Team]),
+     'Premier league teams'[Home Team] = "Liverpool"
+))
+
+Team With Best Home Saves = CALCULATE([Total Home Saves],
+'Premier league teams'[Home Team] = "Tottenham Hotspur"
+) 
+
+Team With Best Home Shots = CALCULATE([Total Home Shots],
+'Premier league teams'[Home Team]="Manchester United"
+) 
+
+Team with highest Away Goals = CALCULATE([Total Away Goals],
+FILTER(
+    ALL('Premier league teams'[Away Team]),
+     'Premier league teams'[Away Team] = "Liverpool"
+))
+
+Team With Home Red Cards (Liverpool & Spurs) = CALCULATE([Total Home Red Cards],
+'Premier league teams'[Home Team]= "Liverpool"
+)
+
+Team With Home Red Cards (Liverpool & Spurs) 2 = CALCULATE([Total Home Red Cards],
+'Premier league teams'[Home Team]= "Tottenham Hotspur"
+)
+
+Team with Most Yellow Cards at Home = CALCULATE([Total Home Yellow Cards],
+'Premier league teams'[Home Team]= "Leeds United"
+)
+
+Team With Most Yellow Cards Away = CALCULATE([Total Away Yellow Cards],
+'Premier league teams'[Away Team]= "Newcastle United"
+)
+
+Team With Red card Away = CALCULATE([Total Away Red cards],
+'Premier league teams'[Away Team]= "Tottenham Hotspur"
+)
+
+Team with the Least Away Goals = CALCULATE([Total Away Goals],
+FILTER(
+    ALL('Premier league teams'[Away Team]),
+     'Premier league teams'[Away Team] = "Wolverhampton Wanderers"
+))
+
+Team with the Least Home Goals = CALCULATE([Total Home Goals],
+FILTER(
+    ALL('Premier league teams'[Home Team]),
+     'Premier league teams'[Home Team] = "Everton"
+))
+
+Teams with highest Home Goals(City & Newcastle) = CALCULATE([Total Home Goals],
+FILTER(
+    ALL('Premier league teams'[Home Team]),
+     'Premier league teams'[Home Team]= "Manchester City"
+))
+
+Teams with highest Home Goals(City & Newcastle) 2 = CALCULATE([Total Home Goals],
+FILTER(
+    ALL('Premier league teams'[Home Team]),
+     'Premier league teams'[Home Team]= "Newcastle United"
+))
+
+Total  Away Shots = SUM('Premier League fact 1'[away_shots])
+
+Total Attendance = SUM('Premier League fact 1'[attendance])
+
+Total Away chances A & M = CALCULATE([Total Season Away chances],
+ALLSELECTED('Premier league teams')
+)
+
+Total Away Goals = SUM('Premier League fact 1'[Away Goals]) 
+
+Total Away Possessions = SUM('Premier League fact 1'[away_possessions])
+
+Total Away Red Cards = SUM('Premier league fact 2'[away_red])
+
+Total Away Saves = SUM('Premier league fact 2'[away_saves])
+
+Total Away Yellow Cards = SUM('Premier league fact 2'[away_yellow])
+
+Total Big Chances Created = [Total Season Home chances] + [Total Season Away chances]
+
+Total Cards = [Total Yellow cards]+[Total Red Cards]
+
+Total Cards ALLSELECTED = CALCULATE([Total Cards], 
+ ALLSELECTED ('premier league teams')
+)
+
+Total Goals Scored = [Total Away Goals] + [Total Home Goals]
+
+Total Home Goals = SUM('Premier League fact 1'[Goals Home])
+
+Total Home Possessions = SUM('Premier League fact 1'[home_possessions])
+
+Total Home Red Cards = SUM('Premier league fact 2'[home_red])
+
+Total Home Saves = SUM('Premier league fact 2'[home_saves])
+
+Total Home Shots = SUM('Premier League fact 1'[home_shots]) 
+
+Total Home Yellow Cards = SUM('Premier league fact 2'[home_yellow]) 
+
+Total Possessions = [Total Away Possessions]+[Total Home Possessions]
+
+Total Red Cards = [Total Away Red Cards]+[Total Home Red Cards]
+
+Total Saves = [Total Away Saves]+[Total Home Saves]
+
+Total Season Away chances = SUM('Premier league fact 2'[away_chances])
+
+Total Season Home chances = SUM('Premier league fact 2'[home_chances])
+
+Total Shots = [Total  Away Shots]+[Total Home Shots]
+
+Total Yellow cards = [Total Away Yellow Cards]+[Total Home Yellow Cards]
+
+United_goals_at_Home = CALCULATE([Total Home Goals],
+FILTER(
+    ALL('Premier league teams'[Home Team]),
+     'Premier league teams'[Home Team] = "Manchester United"
+)) 
+
 
